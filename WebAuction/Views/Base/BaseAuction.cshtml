@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebAuction.Models.Item>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"  charset="utf-8"/>
+    <title>BaseAuction</title>
+    <link rel="stylesheet" type="text/css" href="~/Styles/StyleSheetForAccount.css">
+</head>
+<body>
+    @{ Html.RenderAction("LogInOut","Log");}
+    <div> 
+        You're welcome.<br/>
+    </div>
+    @Html.ActionLink("-> register", "Registration");
+    <p>
+    ..</p>
+    <header>
+        <div id="filtersOnBase">
+            @Html.RouteLink("show all","Auction", new { category = "" })
+            @Html.RouteLink("sport","Auction", new { category = "sport" })
+            @Html.RouteLink("study","Auction", new { category = "study" })
+            @Html.RouteLink("cuisine","Auction", new { category = "cuisine" })
+            @Html.RouteLink("home","Auction", new { category = "house" })
+            @using ( Html.BeginForm("BaseAuction","Base",FormMethod.Post)) {
+                <p>
+                    search item by trader's name
+                </p>
+                @Html.TextBox("filter_items_by_trader's_name")
+                <input type="submit" value="search" id="findItemsByTrName"/>
+            }
+
+
+        </div>
+    </header>
+    @foreach (var p in Model)
+    {
+       @Html.Partial("OutputItemInMainPage", p)
+    }
+</body>
+</html>

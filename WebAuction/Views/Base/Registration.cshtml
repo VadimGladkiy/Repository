@@ -1,0 +1,34 @@
+﻿
+@model WebAuction.Models.TradersValidator
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8"/>
+    <title>Registration</title>
+</head>
+<body>
+    <div id="registration-fields"> 
+        @using (Html.BeginForm("Registration","BaseController","post"))
+        {
+            // fields for name
+            <p> @Html.LabelFor(e => e.tr_fName_check)
+                @Html.TextBoxFor(e => e._newTrader_fullName)<br/></p>
+            // fields for eMail
+            <p> @Html.LabelFor(e => e.tr_eMail_check)
+                @Html.TextBoxFor(e => e._newTrader_eMail)<br/></p>
+            // fields for password
+            <p> @Html.LabelFor(e => e.tr_firPass_check)
+                @Html.TextBoxFor(e => e._newTrader_password)<br/></p>
+            <p> @Html.LabelFor(e => e.tr_secPass_check)
+                @Html.TextBoxFor(e => e.try_newTrader_pass)<br/></p>
+            <input type="submit" value="Try and send data"/>
+        }
+    </div>
+    @Html.ActionLink("-> go to the main page", "BaseAuction");
+</body>
+</html>

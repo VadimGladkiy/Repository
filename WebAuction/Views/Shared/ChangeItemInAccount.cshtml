@@ -1,0 +1,24 @@
+﻿@model WebAuction.Models.Item
+@Model.item_name
+
+<span>
+    Enter a new name
+</span>
+@using (Html.BeginForm("ChangeItemsName","Account"))
+{
+    @Html.TextBox("newName")
+    @Html.Hidden("itemID", Model.item_ID)
+    <input type="submit" value="change name"/>
+}
+
+@Model.item_description
+<p>
+    <img src=@Model.item_pathToPict
+         alt="there is image" id="imagesInAccountDirectory" />
+</p>
+<p>
+    @Model.item_price
+</p>
+<p>
+    @Model.item_offtime
+</p>

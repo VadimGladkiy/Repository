@@ -1,0 +1,29 @@
+﻿
+    <div id="addingItemForm">
+        Add a new item:
+        @using (Html.BeginForm("addNewNote", "Account", FormMethod.Post,
+        new { enctype = "multipart/form-data" }))
+        {
+            @Html.Label("lab_name")
+            @Html.TextBox("name")<br />
+            @Html.Label("lab_desc")
+            @Html.TextArea("descript")<br />
+            @Html.Label("lab_price")
+            @Html.TextBox("price")<br />
+            @Html.Label("lab_cat")
+            @Html.TextBox("categ")<br />
+
+        <input type="file" id="load_pict" value="Load the img" name="image">
+        <input type="submit" value="Send data to validation">
+        }
+        
+    </div>
+    <div>
+    @using (Html.BeginForm("MayAddItem", "AccountController"))
+    {
+         //@Html.Hidden("SuccessfulAdding",false)
+        <input type="submit" value="close subform" >
+    }
+    </div>
+    
+

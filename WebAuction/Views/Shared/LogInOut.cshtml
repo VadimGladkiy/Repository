@@ -1,0 +1,39 @@
+﻿@model WebAuction.Models.Trader
+<div id="headingOfAutorize">
+    Header of pages:
+    hello from LogController<br/>
+    @if (Model != null)
+    {
+        @Model.trader_fullName
+        @: is registered !
+        @Html.RouteLink("my account's page->","acc",new { trader_id = Model.trader_ID})<br/>
+    }
+    else
+    {
+    using (Html.BeginForm("LogInOut", "LogController"))
+    {
+        @:full the fields to register
+        @Html.TextBox("em")
+        @Html.TextBox("ps")
+        <input type="submit" value="log in">
+
+        }
+        <div id="forgotPass">
+            <br />
+            This link is direct to route :
+            @Html.RouteLink("Forgot Email/Pass", "auction", new { forgotFields = true })<br/>
+     
+            @if ((bool)ViewData["forgotenfields"] == true)
+            {
+                using (Html.BeginForm("PassRepair", "LogController"))
+                {
+                    @:Send message to e-mail..
+                    @Html.TextBox("Repair email");
+                    <input type="submit" value="send" />
+                }
+            }
+            
+        </div>
+    }
+</div>
+

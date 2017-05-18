@@ -1,0 +1,12 @@
+﻿<div id="outputSuccessAdding">
+    <p>
+        Your item was sent. Create a new ?
+    </p>
+    @using (Html.BeginForm("MayAddItem", "AccountController"))
+    {
+        @Html.Hidden("SuccessfulAdding", true)
+        <input type="submit" value="ok">
+    }
+</div>
+
+

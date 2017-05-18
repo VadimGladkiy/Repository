@@ -1,0 +1,17 @@
+﻿@model WebAuction.Models.Item
+<div id="itemOnly">
+    <p>
+        <span>
+    @Model.item_name
+        </span>
+    @Model.item_description
+    </p>
+    <p>
+    @Model.item_price
+    </p>
+    <img src=@Model.item_pathToPict id="imagesInAccountDirectory"/>
+    <p>
+    End item<br/>
+    <----->
+    </p>
+</div>

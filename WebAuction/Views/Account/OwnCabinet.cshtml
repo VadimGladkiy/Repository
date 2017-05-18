@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebAuction.Models.Item>
+@using WebAuction.Models
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" charset="utf-8" />
+    <title>OwnCabinet</title>
+    <link rel="stylesheet" type="text/css" href="~/Styles/StyleSheetForAccount.css">
+</head>
+<body>
+    <div> 
+        this is own cabinet:<br/>
+        here your items in list
+    </div>
+    <div>
+        @foreach (var p in Model)
+        {
+           @Html.Partial("ChangeItemInAccount",p)
+        }
+      <--  END LIST --></-->
+    </div>
+    @Html.Action("MayAddItem","Account")
+</body>
+</html>
